@@ -17,12 +17,17 @@ const Dashboard = () => {
 
                                 Dashboard</NavLink>
                         </li>
+                        <li>
+                            <NavLink to="create-task">
+
+                                Create Task</NavLink>
+                        </li>
                     </ul>
                 </div>
 
 
                 {/* dashboard content */}
-                <div className="flex-1">
+                <div className="flex-1 p-6">
                     
                     <Outlet />
                     
