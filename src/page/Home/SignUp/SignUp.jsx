@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DirectLogIn from "../../../components/DirectLogIn.DirectLogIn";
 import useAuth from "../../../hooks/useAuth";
+import axios from "axios";
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useAuth();
@@ -13,14 +14,23 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password, image);
+        const user = { name, email, image }
 
         createUser(email, password)
             .then(res => {
+
                 console.log(res.data);
                 updateUserProfile(name, image)
-                .then(()=>{
-                    console.log('update')
-                })
+                    .then(() => {
+                        console.log('update')
+                        axios.post('http://localhost:5000/users', user)
+                            .then(data => {
+                                console.log(data.data);
+                            })
+                            .catch(err => {
+                                console.error(err);
+                            })
+                    })
             })
             .catch(err => {
                 console.error(err);

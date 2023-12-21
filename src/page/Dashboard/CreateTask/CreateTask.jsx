@@ -1,3 +1,4 @@
+import axios from "axios";
 
 
 const CreateTask = () => {
@@ -10,13 +11,24 @@ const CreateTask = () => {
         const priority = form.priority.value;
         const dadline = form.dadline.value;
         const description = form.description.value;
+        const position = 'to-do'
         console.log(name, title, priority, dadline, description)
+
+        const taskInfo = { name, title, priority, dadline, description, position }
+
+        axios.post('http://localhost:5000/tasks', taskInfo)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.error(err);
+            })
     }
     return (
         <div className="styleAddProduct   min-h-screen pt-10">
             <div className="max-w-[1300px] mx-auto  p-3 flex justify-center">
                 <div className="card text-black bg-pink-200 w-full md:w-1/2 shadow-2xl pb-12 px-2">
-                    <h2 className="text-center text-3xl font-bold mb-6 pt-10 pb-6">Add Your New Book</h2>
+                    <h2 className="text-center text-3xl font-bold mb-6 pt-10 pb-6">Create New Task</h2>
                     <div className="flex justify-center">
                         <form onSubmit={handleAddTask}>
                             <div className="">

@@ -7,6 +7,7 @@ import Useful from "../page/Useful/Useful";
 import Dashboard from "../layout/Dashboard";
 import HomeDashboard from "../page/Dashboard/HomeDashboard/HomeDashboard";
 import CreateTask from "../page/Dashboard/CreateTask/CreateTask";
+import MyTask from "../page/Dashboard/MyTask/MyTask";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: 'create-task',
                 element: <CreateTask />
+            },
+            {
+                path: 'my-task',
+                element: <MyTask />
             }
         ]
     }

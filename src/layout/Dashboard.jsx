@@ -8,14 +8,19 @@ const Dashboard = () => {
     return (
         <div className="">
             <Navber />
-            <div className="max-w-[1250px] mx-auto flex">
+            <div className="max-w-[1250px] mx-auto  ">
                 {/* dashboard side bar */}
-                <div className="w-64 pt-6 min-h-screen bg-green-400">
-                    <ul className="menu">
+                <div className=" p-2 flex justify-center  bg-green-400">
+                    <ul className=" flex gap-5">
                         <li>
                             <NavLink to="/dashboard">
 
                                 Dashboard</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="my-task">
+
+                                My Task</NavLink>
                         </li>
                         <li>
                             <NavLink to="create-task">
