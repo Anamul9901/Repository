@@ -3,7 +3,7 @@ import { LuLogOut } from "react-icons/lu";
 
 
 const Navber = () => {
-    const user = true;
+    const user = false;
     const handleLogOut = () =>{
         console.log('log out')
     }
@@ -73,7 +73,7 @@ const Navber = () => {
                                 </button>
                             </div>
                             :
-                            <Link to='/login'>
+                            <Link to='/signin'>
                                 <button className="btn btn-sm bg-white hover:text-[#080403] text-black font-bold">Log In</button>
                             </Link>
                         }
