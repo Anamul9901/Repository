@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import DirectLogIn from "../../../components/DirectLogIn.DirectLogIn";
+import useAuth from "../../../hooks/useAuth";
 
 const SignUp = () => {
+    const { createUser } = useAuth();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -11,6 +13,14 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password, image);
+
+        createUser(email, password)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.error(err);
+            })
     }
 
     return (

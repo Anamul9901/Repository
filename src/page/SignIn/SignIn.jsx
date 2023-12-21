@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import DirectLogIn from "../../components/DirectLogIn.DirectLogIn";
+import useAuth from "../../hooks/useAuth";
 
 
 
 const SignIn = () => {
+    const {logInUser} = useAuth();
 
     const handleLogin =e => {
         e.preventDefault();
@@ -11,6 +13,14 @@ const SignIn = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        logInUser(email, password)
+        .then(res =>{
+            console.log(res.data)
+        })
+        .catch(err =>{
+            console.error(err);
+        })
     }
 
     return (

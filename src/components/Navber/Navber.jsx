@@ -1,11 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { LuLogOut } from "react-icons/lu";
+import useAuth from "../../hooks/useAuth";
 
 
 const Navber = () => {
-    const user = false;
+    const {user, signOutUser} = useAuth();
+
+    console.log(user)
     const handleLogOut = () =>{
-        console.log('log out')
+        signOutUser()
+        .then()
+        .catch()
     }
 
     const navitem = <>

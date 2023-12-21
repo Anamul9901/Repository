@@ -1,47 +1,48 @@
 /* eslint-disable react/prop-types */
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { app } from "../firebase/firebse.console";
 import { createContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import app from "../firebase/firebse.console";
 
-const auth = getAuth(app);
+
 export const AuthContext = createContext(null);
+const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
-        setIsLoading(true);
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const logInUser = (email, password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const SignInUser = (email, password) => {
-        setIsLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+    const signOutUser = () =>{
+        setLoading(true);
+        return signOut(auth)
     }
 
-    const signOutAll = () => {
-        setIsLoading(true);
-        return signOut(auth);
-    }
-
-
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            setIsLoading(false)
-             return () =>{
-                return unsubscribe;
-             }
+            setLoading(false);
+            return () => {
+                return unsubscribe();
+            }
         })
-    })
+    }, [])
 
     const authInfo = {
+        user,
+        loading,
         createUser,
-        SignInUser,
-        signOutAll,
+        logInUser,
+        signOutUser,
     }
-
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
