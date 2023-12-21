@@ -5,8 +5,12 @@ import DirectLogIn from "../../components/DirectLogIn.DirectLogIn";
 
 const SignIn = () => {
 
-    const handleLogin = () => {
-
+    const handleLogin =e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
     }
 
     return (

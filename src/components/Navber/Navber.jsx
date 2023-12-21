@@ -14,13 +14,15 @@ const Navber = () => {
                 isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
             }>Home</NavLink>
         </li>
-        
 
         <li>
-            <NavLink to="https://www.youtube.com/watch?v=pJQXGmMofro" target="_blan" className={({ isActive, isPending }) =>
+            <NavLink to='/dashboard' className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
-            }>Watch Demo</NavLink>
+            }>Dashboard</NavLink>
         </li>
+        
+
+         
 
     </>
 

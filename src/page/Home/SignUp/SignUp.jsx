@@ -2,9 +2,17 @@ import { Link } from "react-router-dom";
 import DirectLogIn from "../../../components/DirectLogIn.DirectLogIn";
 
 const SignUp = () => {
-    const handleRegister = () => {
 
+    const handleRegister = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const image = form.image.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password, image);
     }
+
     return (
         <div className="styleSign h-[91vh]">
             <div className="flex justify-center h-[80vh] items-center">
