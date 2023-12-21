@@ -3,7 +3,9 @@ import Home from "../page/Home/Home";
 import Root from "../layout/Root";
 import SignIn from "../page/SignIn/SignIn";
 import SignUp from "../page/Home/SignUp/SignUp";
-import Dashboard from "../page/Dashboard/Dashboard";
+import Useful from "../page/Useful/Useful";
+import Dashboard from "../layout/Dashboard";
+import HomeDashboard from "../page/Dashboard/HomeDashboard/HomeDashboard";
 
 const router = createBrowserRouter([
     {
@@ -25,9 +27,23 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard />
+            },
+            {
+                path: '/useful',
+                element: <Useful />
             }
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <HomeDashboard />
+            }
+        ]
+    }
 ]);
 
 export default router;

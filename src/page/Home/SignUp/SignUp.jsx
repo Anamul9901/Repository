@@ -3,7 +3,7 @@ import DirectLogIn from "../../../components/DirectLogIn.DirectLogIn";
 import useAuth from "../../../hooks/useAuth";
 
 const SignUp = () => {
-    const { createUser } = useAuth();
+    const { createUser, updateUserProfile } = useAuth();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -17,6 +17,10 @@ const SignUp = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.data);
+                updateUserProfile(name, image)
+                .then(()=>{
+                    console.log('update')
+                })
             })
             .catch(err => {
                 console.error(err);

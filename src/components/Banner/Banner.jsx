@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div>
 
-        <div className="carousel w-full lg:h-[00px]">
+        <div className="carousel w-full lg:h-[700px]">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={'https://i.ibb.co/7N1c7bm/libr-3.jpg'} className='w-full rounded-xl' />
 
@@ -16,8 +16,7 @@ const Banner = () => {
                                 <img className="lg:w-[40%] md:w-[70%] w-[60%]" src={'https://www.tejgaoncollege.edu.bd/wp-content/uploads/2022/01/Logo2-1-160x164.png'} alt="" />
                             </div>
                         </div>
-                        <Link to="/signin">
-                        <h2 className='md:text-3xl text-xl font-bold visible pt-5'><button className="btn  btn-primary">Let’s Explore</button></h2></Link>
+                        <h2 className='md:text-6xl text-xl font-bold visible pt-5'><Link to='/signin'><button className="btn btn-primary">Let’s Explore</button></Link></h2>
 
                     </div>
                 </div>

@@ -1,16 +1,19 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from "../../hooks/useAuth";
 
 
 const Navber = () => {
-    const {user, signOutUser} = useAuth();
+    const navigate = useNavigate();
+    const { user, signOutUser } = useAuth();
 
     console.log(user)
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         signOutUser()
-        .then()
-        .catch()
+            .then(() => {
+                navigate('/')
+            })
+            .catch()
     }
 
     const navitem = <>
@@ -20,14 +23,23 @@ const Navber = () => {
             }>Home</NavLink>
         </li>
 
-        <li>
-            <NavLink to='/dashboard' className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
-            }>Dashboard</NavLink>
-        </li>
-        
+        {
+            user &&
+            <li>
+                <NavLink to='/dashboard' className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
+                }>Dashboard</NavLink>
+            </li>
+        }
 
-         
+        <li>
+            <NavLink to='/useful' className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
+            }>Useful for</NavLink>
+        </li>
+
+
+
 
     </>
 
