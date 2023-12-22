@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 const UpdateTask = () => {
 
     const allTasks = useLoaderData();
-    console.log(allTasks);
     const { name, title, priority, dadline, description, position } = allTasks;
 
     const handleUpdateTask = e => {
@@ -18,13 +17,12 @@ const UpdateTask = () => {
         const priority = form.priority.value;
         const dadline = form.dadline.value;
         const description = form.description.value;
-        console.log(name, title, priority, dadline, description)
+        // console.log(name, title, priority, dadline, description)
 
         const taskInfo = { name, title, priority, dadline, description, position }
 
         axios.put(`https://job-task-server-sandy-pi.vercel.app/tasks/${allTasks._id}`, taskInfo)
-            .then(res => {
-                console.log(res);
+            .then(() => {
                  
                 Swal.fire({
                     position: "top-end",
@@ -34,8 +32,7 @@ const UpdateTask = () => {
                     timer: 1500
                   });
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
             })
     }
 

@@ -14,11 +14,9 @@ const SignIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         logInUser(email, password)
-        .then(res =>{
-            console.log(res.data)
+        .then(() =>{
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -29,8 +27,7 @@ const SignIn = () => {
               navigate('/dashboard')
               
         })
-        .catch(err =>{
-            console.error(err);
+        .catch(() =>{
             Swal.fire({
                 position: "top-end",
                 icon: "error",

@@ -17,13 +17,13 @@ const CreateTask = () => {
         const description = form.description.value;
         const position = 'to-do'
         const userEmail = user.email;
-        console.log(name, title, priority, dadline, description)
+        // console.log(name, title, priority, dadline, description)
 
         const taskInfo = { name, title, priority, dadline, description, position, userEmail }
 
         axios.post('https://job-task-server-sandy-pi.vercel.app/tasks', taskInfo)
-            .then(res => {
-                console.log(res);
+            .then(() => {
+                // console.log(res);
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -32,8 +32,8 @@ const CreateTask = () => {
                     timer: 1500
                   });
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
+                // console.error(err);
             })
     }
     return (

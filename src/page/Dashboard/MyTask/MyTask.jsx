@@ -6,6 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useTasks from "../../../hooks/useTasks";
 
 // import { DndProvider, useDrag } from 'react-dnd'
 // import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -14,7 +15,13 @@ import Swal from "sweetalert2";
 const MyTask = () => {
     const [tasks, setTasks] = useState([]);
     const { user } = useAuth();
+    const [allTasks, , refetch] = useTasks();
+    // console.log(allTasks);
+    refetch()
 
+    useEffect(()=>{
+        refetch();
+    },[refetch])
 
     useEffect(() => {
         axios.get('https://job-task-server-sandy-pi.vercel.app/tasks')
@@ -22,11 +29,13 @@ const MyTask = () => {
                 setTasks(res.data)
             })
             .catch(() => { })
-    }, [])
-    console.log(tasks);
+            refetch();
+    }, [refetch])
+    // console.log(tasks);
 
     const filterWithEmail = tasks?.filter(task => task?.userEmail === user?.email)
-    console.log(filterWithEmail)
+    // console.log(filterWithEmail)
+    
 
     const filterToDo = filterWithEmail?.filter(task => task?.position === 'to-do')
     // const [{ isDragging }, drag] = useDrag(() => ({
@@ -35,67 +44,72 @@ const MyTask = () => {
     //       isDragging: !!monitor.isDragging()
     //     })
     //   }))
-
     //   console.log(isDragging);
 
     const filterOngoing = filterWithEmail?.filter(task => task?.position === 'ongoing')
-    // console.log(filterOngoing);
+    
+
     const filterCompleted = filterWithEmail?.filter(task => task?.position === 'completed')
-    // console.log(filterCompleted);
 
     const handleDelete = id => {
         axios.delete(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`)
-            .then(() => { 
-                 
+            .then(() => {
+
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
                     title: `delete successfully`,
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             })
             .catch(() => { })
-        console.log(id)
+            refetch();
+        // console.log(id)
     }
 
     const handleOngoing = id => {
-        console.log(id)
+        // console.log(id)
         const newPosition = 'ongoing';
         const newData = { newPosition }
         axios.patch(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`, newData)
-            .then(res => {
-                console.log(res.data);
+            .then(() => {
+                // console.log(res.data);
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
+                // console.error(err);
             })
+            refetch();
+
     }
+    
 
     const handleCompleted = id => {
-        console.log(id)
+        // console.log(id)
         const newPosition = 'completed';
         const newData = { newPosition }
         axios.patch(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`, newData)
-            .then(res => {
-                console.log(res.data);
+            .then(() => {
+                // console.log(res.data);
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
+                // console.error(err);
             })
+            refetch();
     }
 
     const handleToDo = id => {
-        console.log(id)
+        // console.log(id)
         const newPosition = 'to-do';
         const newData = { newPosition }
         axios.patch(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`, newData)
-            .then(res => {
-                console.log(res.data);
+            .then(() => {
+                // console.log(res.data);
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
+                // console.error(err);
             })
+            refetch();
     }
 
 
@@ -248,7 +262,7 @@ const MyTask = () => {
                                                     </div>
 
                                                     <div >
-                                                    <div className="pb-2">
+                                                        <div className="pb-2">
                                                             <button className="bg-red-600   rounded-md font-bold text-white px-1" onClick={() => handleToDo(task._id)}>To-do</button>
                                                         </div>
                                                         <div className="pb-2">

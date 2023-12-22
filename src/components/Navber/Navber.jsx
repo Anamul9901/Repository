@@ -8,7 +8,7 @@ const Navber = () => {
     const navigate = useNavigate();
     const { user, signOutUser } = useAuth();
 
-    console.log(user)
+    // console.log(user)
     const handleLogOut = () => {
         signOutUser()
             .then(() => {

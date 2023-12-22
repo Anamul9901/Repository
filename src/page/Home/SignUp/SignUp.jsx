@@ -15,16 +15,16 @@ const SignUp = () => {
         const image = form.image.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password, image);
+        // console.log(name, email, password, image);
         const user = { name, email, image }
 
         createUser(email, password)
-            .then(res => {
+            .then(() => {
 
-                console.log(res.data);
+                // console.log(res.data);
                 updateUserProfile(name, image)
                     .then(() => {
-                        console.log('update')
+                        // console.log('update')
                         axios.post('https://job-task-server-sandy-pi.vercel.app/users', user)
                             .then(() => {
                                 // console.log(data.data);
@@ -37,13 +37,12 @@ const SignUp = () => {
                                   });
                                   navigate('/dashboard')
                             })
-                            .catch(err => {
-                                console.error(err);
+                            .catch(() => {
+                                // console.error(err);
                             })
                     })
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
                 Swal.fire({
                     position: "top-end",
                     icon: "error",

@@ -12,8 +12,8 @@ const DirectLogIn = () => {
 
     const handleGoogleLogIn = () => {
         googleSignIn()
-            .then(res => {
-                console.log(res.data);
+            .then(() => {
+                // console.log(res.data);
                 navigate('/dashboard')
                 Swal.fire({
                     position: "top-end",
@@ -21,22 +21,43 @@ const DirectLogIn = () => {
                     title: "LogIn successfully",
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             })
-            .catch(err => {
-                console.error(err);
+            .catch(() => {
+                // console.error(err);
                 Swal.fire({
                     position: "top-end",
                     icon: "error",
                     title: "There is a problem",
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             })
     }
 
-    const handleGithubLogIn =()=>{
+    const handleGithubLogIn = () => {
         githubSignin()
+            .then(() => {
+                // console.log(res.data);
+                navigate('/dashboard')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "LogIn successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(() => {
+                // console.error(err);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "There is a problem",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     }
     return (
         <div>
