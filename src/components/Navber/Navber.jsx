@@ -20,6 +20,7 @@ const Navber = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  
             })
             .catch()
     }

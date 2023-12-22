@@ -31,6 +31,13 @@ const SignIn = () => {
         })
         .catch(err =>{
             console.error(err);
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "There is a problem",
+                showConfirmButton: false,
+                timer: 1500
+              });
         })
     }
 

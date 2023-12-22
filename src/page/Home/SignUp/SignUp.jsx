@@ -44,6 +44,13 @@ const SignUp = () => {
             })
             .catch(err => {
                 console.error(err);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "There is a problem",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
     }
 
@@ -79,7 +86,7 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="relative h-11 w-full min-w-[200px]">
-                                <input
+                                <input required
                                     name="email" type="email"
                                     className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
 
@@ -89,7 +96,7 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="relative h-11 w-full min-w-[200px]">
-                                <input
+                                <input required
                                     name="password" type="password"
                                     className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
 
@@ -112,7 +119,7 @@ const SignUp = () => {
                         </div>
                     </form>
 
-                    <p className="text-red-500 ml-6"><small>Error</small></p>
+                    
 
                     <div className="p-6 pt-0">
                         <div>
