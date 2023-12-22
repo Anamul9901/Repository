@@ -8,20 +8,20 @@ const Dashboard = () => {
     return (
         <div className=" ">
             <Navber />
-            <div className="max-w-[1250px] mx-auto mt-2">
+            <div className="md:max-w-[1250px] mx-auto mt-2">
                 {/* dashboard side bar */}
                 <div className=" p-1 flex justify-center mb-2 w-64 rounded-full mx-auto  bg-green-600">
                     <ul className=" flex gap-5">
                         
                         <li>
                             <NavLink to='my-task' className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black   ' : "lg:text-white text-[#f76b00] font-bold"
+                                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black   ' : "text-white   font-bold"
                             }>My Task</NavLink>
                         </li>
                         
                         <li>
                             <NavLink to='create-task' className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black   ' : "lg:text-white text-[#f76b00] font-bold"
+                                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black   ' : "text-white   font-bold"
                             }>Create Task</NavLink>
                         </li>
                         

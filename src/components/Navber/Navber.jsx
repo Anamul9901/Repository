@@ -27,7 +27,7 @@ const Navber = () => {
     const navitem = <>
         <li>
             <NavLink to='/' className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
+                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#3da5e5] font-bold md:text-xl"
             }>Home</NavLink>
         </li>
 
@@ -35,14 +35,14 @@ const Navber = () => {
             user &&
             <li>
                 <NavLink to='/dashboard' className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
+                    isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#3da5e5] font-bold md:text-xl"
                 }>Dashboard</NavLink>
             </li>
         }
 
         <li>
             <NavLink to='/useful' className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#f76b00] font-bold md:text-xl"
+                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black md:text-xl ' : "lg:text-white text-[#3da5e5] font-bold md:text-xl"
             }>Useful for</NavLink>
         </li>
 
