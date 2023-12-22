@@ -21,7 +21,7 @@ const CreateTask = () => {
 
         const taskInfo = { name, title, priority, dadline, description, position, userEmail }
 
-        axios.post('http://localhost:5000/tasks', taskInfo)
+        axios.post('https://job-task-server-sandy-pi.vercel.app/tasks', taskInfo)
             .then(res => {
                 console.log(res);
                 Swal.fire({

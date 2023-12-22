@@ -1,15 +1,18 @@
 
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 
 const DirectLogIn = () => {
     const { googleSignIn } = useAuth();
+    const navigate = useNavigate();
 
     const handleGoogleLogIn = () => {
         googleSignIn()
             .then(res => {
                 console.log(res.data);
+                navigate('/dashboard')
             })
             .catch(err => {
                 console.error(err);

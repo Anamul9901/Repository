@@ -17,7 +17,7 @@ const MyTask = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/tasks')
+        axios.get('https://job-task-server-sandy-pi.vercel.app/tasks')
             .then(res => {
                 setTasks(res.data)
             })
@@ -44,7 +44,7 @@ const MyTask = () => {
     // console.log(filterCompleted);
 
     const handleDelete = id => {
-        axios.delete(`http://localhost:5000/tasks/${id}`)
+        axios.delete(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`)
             .then(() => { 
                  
                 Swal.fire({
@@ -63,7 +63,7 @@ const MyTask = () => {
         console.log(id)
         const newPosition = 'ongoing';
         const newData = { newPosition }
-        axios.patch(`http://localhost:5000/tasks/${id}`, newData)
+        axios.patch(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`, newData)
             .then(res => {
                 console.log(res.data);
             })
@@ -76,7 +76,7 @@ const MyTask = () => {
         console.log(id)
         const newPosition = 'completed';
         const newData = { newPosition }
-        axios.patch(`http://localhost:5000/tasks/${id}`, newData)
+        axios.patch(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`, newData)
             .then(res => {
                 console.log(res.data);
             })
@@ -89,7 +89,7 @@ const MyTask = () => {
         console.log(id)
         const newPosition = 'to-do';
         const newData = { newPosition }
-        axios.patch(`http://localhost:5000/tasks/${id}`, newData)
+        axios.patch(`https://job-task-server-sandy-pi.vercel.app/tasks/${id}`, newData)
             .then(res => {
                 console.log(res.data);
             })

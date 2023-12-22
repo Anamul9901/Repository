@@ -1,9 +1,11 @@
- 
+import './Useful.css'
 
 const Useful = () => {
     return (
-        <div>
-            useful
+        <div className='styleUseful'>
+            <div className=" text-white max-w-[1250px] mx-auto h-[93vh]">
+             
+        </div>
         </div>
     );
 };

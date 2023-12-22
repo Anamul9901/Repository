@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DirectLogIn from "../../components/DirectLogIn.DirectLogIn";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 const SignIn = () => {
     const {logInUser} = useAuth();
+    const navigate = useNavigate();
 
     const handleLogin =e => {
         e.preventDefault();
@@ -25,6 +26,7 @@ const SignIn = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate('/dashboard')
               
         })
         .catch(err =>{

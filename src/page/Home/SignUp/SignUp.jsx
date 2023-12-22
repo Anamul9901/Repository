@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DirectLogIn from "../../../components/DirectLogIn.DirectLogIn";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useAuth();
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -24,7 +25,7 @@ const SignUp = () => {
                 updateUserProfile(name, image)
                     .then(() => {
                         console.log('update')
-                        axios.post('http://localhost:5000/users', user)
+                        axios.post('https://job-task-server-sandy-pi.vercel.app/users', user)
                             .then(() => {
                                 // console.log(data.data);
                                 Swal.fire({
@@ -34,6 +35,7 @@ const SignUp = () => {
                                     showConfirmButton: false,
                                     timer: 1500
                                   });
+                                  navigate('/dashboard')
                             })
                             .catch(err => {
                                 console.error(err);

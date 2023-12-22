@@ -9,11 +9,13 @@ import HomeDashboard from "../page/Dashboard/HomeDashboard/HomeDashboard";
 import CreateTask from "../page/Dashboard/CreateTask/CreateTask";
 import MyTask from "../page/Dashboard/MyTask/MyTask";
 import UpdateTask from "../page/UpdateTask/UpdateTask";
+import ErrorPage from "../page/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path: 'update-task/:id',
                 element: <UpdateTask />,
-                loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`)
+                loader: ({ params }) => fetch(`https://job-task-server-sandy-pi.vercel.app/tasks/${params.id}`)
             }
         ]
     }

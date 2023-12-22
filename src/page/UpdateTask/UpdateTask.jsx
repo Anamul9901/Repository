@@ -22,7 +22,7 @@ const UpdateTask = () => {
 
         const taskInfo = { name, title, priority, dadline, description, position }
 
-        axios.put(`http://localhost:5000/tasks/${allTasks._id}`, taskInfo)
+        axios.put(`https://job-task-server-sandy-pi.vercel.app/tasks/${allTasks._id}`, taskInfo)
             .then(res => {
                 console.log(res);
                  
