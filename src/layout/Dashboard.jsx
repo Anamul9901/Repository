@@ -6,36 +6,34 @@ import Footer from "../components/Footer/Footer";
 
 const Dashboard = () => {
     return (
-        <div className="">
+        <div className=" ">
             <Navber />
-            <div className="max-w-[1250px] mx-auto  ">
+            <div className="max-w-[1250px] mx-auto mt-2">
                 {/* dashboard side bar */}
-                <div className=" p-2 flex justify-center  bg-green-400">
+                <div className=" p-1 flex justify-center mb-2 w-64 rounded-full mx-auto  bg-green-600">
                     <ul className=" flex gap-5">
+                        
                         <li>
-                            <NavLink to="/dashboard">
-
-                                Dashboard</NavLink>
+                            <NavLink to='my-task' className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black   ' : "lg:text-white text-[#f76b00] font-bold"
+                            }>My Task</NavLink>
                         </li>
+                        
                         <li>
-                            <NavLink to="my-task">
-
-                                My Task</NavLink>
+                            <NavLink to='create-task' className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? 'text-[#050506] underline font-black   ' : "lg:text-white text-[#f76b00] font-bold"
+                            }>Create Task</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="create-task">
-
-                                Create Task</NavLink>
-                        </li>
+                        
                     </ul>
                 </div>
 
 
                 {/* dashboard content */}
-                <div className="flex-1 p-6">
-                    
+                <div className="flex-1 md:h-[60vh]">
+
                     <Outlet />
-                    
+
                 </div>
 
             </div>

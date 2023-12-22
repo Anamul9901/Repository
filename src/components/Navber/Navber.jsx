@@ -45,7 +45,7 @@ const Navber = () => {
 
 
     return (
-        <div className="bg-[#f76b00] text-white">
+        <div className="bg-[#0b4a6cde] text-white">
             <div className='max-w-[1300px] mx-auto w-full'>
                 <div className="navbar   ">
                     <div className="navbar-start ">
@@ -59,8 +59,7 @@ const Navber = () => {
                         </div>
                         <Link to='/'>
                             <div className="flex items-center">
-                                <img className="md:w-[15%] w-[28%]" src={'https://i.ibb.co/LZsK9YV/pngwing-com-15.png'} alt="" />
-                                <h2 className="font-bold md:text-xl">e-SHOP</h2>
+                                <h2 className="font-bold md:text-xl uppercase">Taskmaster</h2>
                             </div>
                         </Link>
                     </div>

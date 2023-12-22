@@ -15,8 +15,8 @@ const Footer = () => {
                             <div  >
                                 <Link to='/'>
                                     <div className="flex items-center justify-center">
-                                        <img className="md:w-[15%] w-[10%]" src={'https://i.ibb.co/LZsK9YV/pngwing-com-15.png'} alt="" />
-                                        <h2 className="font-bold md:text-xl text-[#f76b00]">e-SHOP</h2>
+                                         
+                                        <h2 className="font-bold md:text-xl text-[#f76b00]">TASKMASTER</h2>
                                     </div>
                                 </Link>
                             </div>
