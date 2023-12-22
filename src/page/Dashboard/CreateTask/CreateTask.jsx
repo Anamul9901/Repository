@@ -4,8 +4,7 @@ import Swal from "sweetalert2";
 
 
 const CreateTask = () => {
-    const {user} = useAuth();
-    // console.log(user.email)
+    const { user } = useAuth();
 
     const handleAddTask = e => {
         e.preventDefault();
@@ -20,7 +19,7 @@ const CreateTask = () => {
         // console.log(name, title, priority, dadline, description)
 
         const taskInfo = { name, title, priority, dadline, description, position, userEmail }
-
+        
         axios.post('https://job-task-server-sandy-pi.vercel.app/tasks', taskInfo)
             .then(() => {
                 // console.log(res);
@@ -30,7 +29,7 @@ const CreateTask = () => {
                     title: `${name} added successfully`,
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             })
             .catch(() => {
                 // console.error(err);

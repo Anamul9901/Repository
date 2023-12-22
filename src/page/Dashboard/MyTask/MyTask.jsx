@@ -6,7 +6,6 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import useTasks from "../../../hooks/useTasks";
 
 // import { DndProvider, useDrag } from 'react-dnd'
 // import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -15,13 +14,10 @@ import useTasks from "../../../hooks/useTasks";
 const MyTask = () => {
     const [tasks, setTasks] = useState([]);
     const { user } = useAuth();
-    const [allTasks, , refetch] = useTasks();
     // console.log(allTasks);
-    refetch()
+    
 
-    useEffect(()=>{
-        refetch();
-    },[refetch])
+    
 
     useEffect(() => {
         axios.get('https://job-task-server-sandy-pi.vercel.app/tasks')
@@ -29,8 +25,8 @@ const MyTask = () => {
                 setTasks(res.data)
             })
             .catch(() => { })
-            refetch();
-    }, [refetch])
+           
+    }, [])
     // console.log(tasks);
 
     const filterWithEmail = tasks?.filter(task => task?.userEmail === user?.email)
@@ -64,7 +60,7 @@ const MyTask = () => {
                 });
             })
             .catch(() => { })
-            refetch();
+           
         // console.log(id)
     }
 
@@ -79,7 +75,7 @@ const MyTask = () => {
             .catch(() => {
                 // console.error(err);
             })
-            refetch();
+           
 
     }
     
@@ -95,7 +91,7 @@ const MyTask = () => {
             .catch(() => {
                 // console.error(err);
             })
-            refetch();
+            
     }
 
     const handleToDo = id => {
@@ -109,7 +105,7 @@ const MyTask = () => {
             .catch(() => {
                 // console.error(err);
             })
-            refetch();
+            
     }
 
 

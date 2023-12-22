@@ -16,7 +16,7 @@ const Footer = () => {
                                 <Link to='/'>
                                     <div className="flex items-center justify-center">
                                          
-                                        <h2 className="font-bold md:text-xl text-[#f76b00]">TASKMASTER</h2>
+                                        <h2 className="font-bold md:text-xl text-indigo-200">TASKMASTER</h2>
                                     </div>
                                 </Link>
                             </div>
