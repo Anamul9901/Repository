@@ -26,7 +26,7 @@ const Banner = () => {
                 </div>
             </div>
 
-            <div className="flex items-center gap-10 bg-gray-300">
+            <div className="flex items-center gap-10 bg-gray-200">
                 <img className="w-[40%] p-5" src={'https://www.bitrix24.com/upload/optimizer/converted/images/content_en/product/tasks_and_projects/free_online_task_manager/img_why.png.webp?1701181440000'} alt="" />
                 <div>
                     <h2 className="text-3xl font-bold pb-10">Why TASKMASTER?</h2>

@@ -70,7 +70,7 @@ const Footer = () => {
                         <hr className="my-8 border-blue-gray-50" />
                         <p className="block text-center   text-slate-400 pb-4">
                              Thank for visiting 
-                            <p><small>&copy; 2023 Your e-SHOP. All rights reserved.</small></p>
+                            <p><small>&copy; 2023 Our TASKMASTER. All rights reserved.</small></p>
 
                         </p>
                     </div>

@@ -1,7 +1,10 @@
 import axios from "axios";
+import useAuth from "../../../hooks/useAuth";
 
 
 const CreateTask = () => {
+    const {user} = useAuth();
+    // console.log(user.email)
 
     const handleAddTask = e => {
         e.preventDefault();
@@ -12,9 +15,10 @@ const CreateTask = () => {
         const dadline = form.dadline.value;
         const description = form.description.value;
         const position = 'to-do'
+        const userEmail = user.email;
         console.log(name, title, priority, dadline, description)
 
-        const taskInfo = { name, title, priority, dadline, description, position }
+        const taskInfo = { name, title, priority, dadline, description, position, userEmail }
 
         axios.post('http://localhost:5000/tasks', taskInfo)
             .then(res => {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 // import { DndProvider, useDrag } from 'react-dnd'
 // import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -11,6 +12,7 @@ import { Link } from "react-router-dom";
 
 const MyTask = () => {
     const [tasks, setTasks] = useState([]);
+    const {user} = useAuth();
 
 
     useEffect(() => {
@@ -22,7 +24,10 @@ const MyTask = () => {
     }, [])
     console.log(tasks);
 
-    const filterToDo = tasks.filter(task => task.position === 'to-do')
+    const filterWithEmail = tasks?.filter(task => task?.userEmail === user?.email)
+    console.log(filterWithEmail)
+
+    const filterToDo = filterWithEmail?.filter(task => task?.position === 'to-do')
     // const [{ isDragging }, drag] = useDrag(() => ({
     //     type: "task",
     //     collect: (monitor) => ({
@@ -32,9 +37,9 @@ const MyTask = () => {
 
     //   console.log(isDragging);
 
-    const filterOngoing = tasks.filter(task => task.position === 'ongoing')
+    const filterOngoing = filterWithEmail?.filter(task => task?.position === 'ongoing')
     // console.log(filterOngoing);
-    const filterCompleted = tasks.filter(task => task.position === 'completed')
+    const filterCompleted = filterWithEmail?.filter(task => task?.position === 'completed')
     // console.log(filterCompleted);
 
     const handleDelete = id => {
