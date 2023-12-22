@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import DirectLogIn from "../../../components/DirectLogIn.DirectLogIn";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useAuth();
@@ -24,8 +25,15 @@ const SignUp = () => {
                     .then(() => {
                         console.log('update')
                         axios.post('http://localhost:5000/users', user)
-                            .then(data => {
-                                console.log(data.data);
+                            .then(() => {
+                                // console.log(data.data);
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "SignUp successfully",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                  });
                             })
                             .catch(err => {
                                 console.error(err);

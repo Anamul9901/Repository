@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DirectLogIn from "../../components/DirectLogIn.DirectLogIn";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 
@@ -17,6 +18,14 @@ const SignIn = () => {
         logInUser(email, password)
         .then(res =>{
             console.log(res.data)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "SignIn successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              
         })
         .catch(err =>{
             console.error(err);

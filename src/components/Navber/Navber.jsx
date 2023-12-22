@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const Navber = () => {
@@ -12,6 +13,13 @@ const Navber = () => {
         signOutUser()
             .then(() => {
                 navigate('/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Log Out successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
             .catch()
     }

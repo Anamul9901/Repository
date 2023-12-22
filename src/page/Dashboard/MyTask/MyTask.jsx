@@ -5,6 +5,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 // import { DndProvider, useDrag } from 'react-dnd'
 // import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -44,7 +45,16 @@ const MyTask = () => {
 
     const handleDelete = id => {
         axios.delete(`http://localhost:5000/tasks/${id}`)
-            .then(() => { })
+            .then(() => { 
+                 
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `delete successfully`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            })
             .catch(() => { })
         console.log(id)
     }

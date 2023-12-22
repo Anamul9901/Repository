@@ -1,5 +1,6 @@
 import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const CreateTask = () => {
@@ -23,6 +24,13 @@ const CreateTask = () => {
         axios.post('http://localhost:5000/tasks', taskInfo)
             .then(res => {
                 console.log(res);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${name} added successfully`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
             .catch(err => {
                 console.error(err);

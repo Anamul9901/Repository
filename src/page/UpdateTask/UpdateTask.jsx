@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -24,6 +25,14 @@ const UpdateTask = () => {
         axios.put(`http://localhost:5000/tasks/${allTasks._id}`, taskInfo)
             .then(res => {
                 console.log(res);
+                 
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${name} update successfully`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
             .catch(err => {
                 console.error(err);
